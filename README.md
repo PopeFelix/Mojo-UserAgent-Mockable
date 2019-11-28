@@ -4,7 +4,7 @@ Mojo::UserAgent::Mockable - A Mojo User-Agent that can record and play back requ
 
 # VERSION
 
-version 1.56
+version 1.57
 
 # SYNOPSIS
 
@@ -27,7 +27,7 @@ Mode to operate in.  One of:
 
 - passthrough
 
-    Operates like [Mojo::UserAgent](https://metacpan.org/pod/Mojo::UserAgent) in all respects. No recording or playback happen.
+    Operates like [Mojo::UserAgent](https://metacpan.org/pod/Mojo%3A%3AUserAgent) in all respects. No recording or playback happen.
 
 - record
 
@@ -39,7 +39,7 @@ Mode to operate in.  One of:
 
 - lwp-ua-mockable
 
-    Works like [LWP::UserAgent::Mockable](https://metacpan.org/pod/LWP::UserAgent::Mockable). Set the LWP\_UA\_MOCK environment variable to 'playback', 
+    Works like [LWP::UserAgent::Mockable](https://metacpan.org/pod/LWP%3A%3AUserAgent%3A%3AMockable). Set the LWP\_UA\_MOCK environment variable to 'playback', 
     'record', or 'passthrough', and the LWP\_UA\_MOCK\_FILE environment variable to the recording file.
 
 ## file
@@ -154,7 +154,7 @@ Using this module against a local app, e.g.:
 
 Doesn't work, because in playback mode, requests are served from an internal Mojolicious instance.
 So if you blow that away, the thing stops working, natch.  You should instead instantiate 
-[Mojo::Server::Daemon](https://metacpan.org/pod/Mojo::Server::Daemon) and connect to the app via the server's URL, like so:
+[Mojo::Server::Daemon](https://metacpan.org/pod/Mojo%3A%3AServer%3A%3ADaemon) and connect to the app via the server's URL, like so:
 
     use Mojo::Server::Daemon;
     use Mojo::IOLoop;
@@ -180,7 +180,7 @@ So if you blow that away, the thing stops working, natch.  You should instead in
 
 ## Mojolicious::Lite
 
-You will often see tests written using [Mojolicious::Lite](https://metacpan.org/pod/Mojolicious::Lite) like so:
+You will often see tests written using [Mojolicious::Lite](https://metacpan.org/pod/Mojolicious%3A%3ALite) like so:
 
     use Mojolicious::Lite;
 
@@ -213,7 +213,7 @@ And this is all fine. Where it stops being fine is when you have Mojo::UserAgent
     $t->get_ok('/')->status_is(200)->text_is( ... );
 
 Mojolicious::Lite will replace the current UA's internal application server's application instance 
-(["app" in Mojo::UserAgent::Server](https://metacpan.org/pod/Mojo::UserAgent::Server#app)) with the Mojolicious::Lite application.  This will break the 
+(["app" in Mojo::UserAgent::Server](https://metacpan.org/pod/Mojo%3A%3AUserAgent%3A%3AServer#app)) with the Mojolicious::Lite application.  This will break the 
 playback functionality, as this depends on a custom Mojolicious application internal to the module.
 Instead, define your application in a separate package (not necessarily a separate file), like so:
 
@@ -285,9 +285,9 @@ The following transaction level events will not be emitted during playback:
 
 # SEE ALSO
 
-- [Mojo::UserAgent](https://metacpan.org/pod/Mojo::UserAgent) 
+- [Mojo::UserAgent](https://metacpan.org/pod/Mojo%3A%3AUserAgent) 
 The class being mocked (but not derided, because the whole Mojo thing is really quite clever)
-=item \* [Mojo::Transaction::HTTP](https://metacpan.org/pod/Mojo::Transaction::HTTP) 
+=item \* [Mojo::Transaction::HTTP](https://metacpan.org/pod/Mojo%3A%3ATransaction%3A%3AHTTP) 
 Where the magic happens
 
 # CONTRIBUTORS
@@ -318,7 +318,7 @@ Kit Peters <popefelix@gmail.com>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2018 by Kit Peters.
+This software is copyright (c) 2019 by Kit Peters.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
