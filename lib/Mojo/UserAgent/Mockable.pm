@@ -105,6 +105,9 @@ serialized and stored in memory.  When the instance goes out of scope, or at any
 called, the transaction cache will be written to the file specfied by L</file> in JSON format. 
 Transactions are stored in the cache in the order they were made.
 
+The file's contents are pretty-printed and canonicalized (ie hash keys are sorted) so that mocks
+are easy to read and diffs are minimized.
+
 =head2 Playback mode
 
 When this class is instantiated, the instance will read the transaction cache from the file 
@@ -311,6 +314,8 @@ Stefan Adams  C<< <stefan@borgia.com> >>
 Mohammad Anwar C<< mohammad.anwar@yahoo.com >>
 
 Johan Lindstrom C<< johanl@cpan.org >>
+
+David Cantrell C<< david@cantrell.org.uk >>
 
 Everyone on #mojo on irc.perl.org
 

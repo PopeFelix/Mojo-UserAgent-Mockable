@@ -8,7 +8,7 @@ use Carp;
 use Class::Load ':all';
 use English qw/-no_match_vars/;
 use Path::Tiny;
-use JSON::MaybeXS qw/encode_json decode_json/;
+use JSON::MaybeXS qw/decode_json/;
 use Mojo::Base 'Mojo::EventEmitter';
 use Safe::Isa (qw/$_isa/);
 use Try::Tiny;
@@ -178,7 +178,8 @@ sub serialize {
     for (0 .. $#serialized) {
         $serialized[$_]->{txn_num} = $_;
     }
-    return encode_json( \@serialized );
+    my $JSON = JSON::MaybeXS->new(pretty => 1, sort_by => 1, utf8 => 1);
+    return $JSON->encode( \@serialized );
 }
 
 sub _serialize_tx {
