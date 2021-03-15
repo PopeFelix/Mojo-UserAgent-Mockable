@@ -1,6 +1,7 @@
 {{$NEXT}}
 
 - #15: Fixed issue where save wouldn't work if called during global destruction
+- #28: Prettify and canonicalize recorded mocks
 
 1.55      2018-11-21 22:05:33-06:00 America/Chicago
 

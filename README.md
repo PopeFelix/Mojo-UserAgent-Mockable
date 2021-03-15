@@ -4,7 +4,7 @@ Mojo::UserAgent::Mockable - A Mojo User-Agent that can record and play back requ
 
 # VERSION
 
-version 1.57
+version 1.58
 
 # SYNOPSIS
 
@@ -110,6 +110,9 @@ For the life of a given instance of this class, all transactions made using that
 serialized and stored in memory.  When the instance goes out of scope, or at any time  ["save"](#save) is 
 called, the transaction cache will be written to the file specfied by ["file"](#file) in JSON format. 
 Transactions are stored in the cache in the order they were made.
+
+The file's contents are pretty-printed and canonicalized (ie hash keys are sorted) so that mocks
+are easy to read and diffs are minimized.
 
 ## Playback mode
 
@@ -280,14 +283,15 @@ You can also do the following (as seen in t/030\_basic\_authentication.t):
 The following transaction level events will not be emitted during playback:
 
 - pre\_freeze
-=item post\_freeze
-=item resume
+- post\_freeze
+- resume
 
 # SEE ALSO
 
 - [Mojo::UserAgent](https://metacpan.org/pod/Mojo%3A%3AUserAgent) 
 The class being mocked (but not derided, because the whole Mojo thing is really quite clever)
-=item \* [Mojo::Transaction::HTTP](https://metacpan.org/pod/Mojo%3A%3ATransaction%3A%3AHTTP) 
+
+- [Mojo::Transaction::HTTP](https://metacpan.org/pod/Mojo%3A%3ATransaction%3A%3AHTTP) 
 Where the magic happens
 
 # CONTRIBUTORS
@@ -310,6 +314,8 @@ Mohammad Anwar `mohammad.anwar@yahoo.com`
 
 Johan Lindstrom `johanl@cpan.org`
 
+David Cantrell `david@cantrell.org.uk`
+
 Everyone on #mojo on irc.perl.org
 
 # AUTHOR
@@ -318,7 +324,7 @@ Kit Peters <popefelix@gmail.com>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2019 by Kit Peters.
+This software is copyright (c) 2021 by Kit Peters.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
