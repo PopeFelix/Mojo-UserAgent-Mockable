@@ -30,12 +30,14 @@ for ( 0 .. $#transactions ) {
                 my ( $ua, $tx ) = @_;
                 diag qq{Get URL $index};
                 is_deeply $tx->res->json, $results[$index], qq{result $index matches that of stock Mojo UA (nonblocking)};
+                Mojo::IOLoop->stop;
             }
         );
     }
     'get() did not die (nonblocking)';
+    Mojo::IOLoop->start unless Mojo::IOLoop->is_running;
 }
-Mojo::IOLoop->start unless Mojo::IOLoop->is_running;
+
 $mock->save;
 
 ok -e $output_file, 'Output file exists';
