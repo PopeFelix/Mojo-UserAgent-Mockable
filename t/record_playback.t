@@ -1,3 +1,5 @@
+# NB this test is also run from t/canonicalize_portably_*
+
 use 5.014;
 
 use File::Temp;

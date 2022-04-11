@@ -178,7 +178,7 @@ sub serialize {
     for (0 .. $#serialized) {
         $serialized[$_]->{txn_num} = $_;
     }
-    my $JSON = JSON::MaybeXS->new(pretty => 1, sort_by => 1, utf8 => 1);
+    my $JSON = JSON::MaybeXS->new(pretty => 1, canonical => 1, utf8 => 1);
     return $JSON->encode( \@serialized );
 }
 
