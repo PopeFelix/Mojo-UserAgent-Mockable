@@ -315,7 +315,7 @@ Mohammad Anwar C<< mohammad.anwar@yahoo.com >>
 
 Johan Lindstrom C<< johanl@cpan.org >>
 
-David Cantrell C<< david@cantrell.org.uk >>
+David Cantrell L<https://github.com/DrHyde>
 
 Everyone on #mojo on irc.perl.org
 
