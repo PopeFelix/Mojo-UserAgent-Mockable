@@ -22,3 +22,5 @@ nytprof.out
 sketches
 NOTES.txt
 *.sw?
+.cpanm
+Dockerfile
